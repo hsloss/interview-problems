@@ -41,7 +41,7 @@
 import random
 
 def find_geo_seq(l, r):
-    # code here
+    # code
     return 0
 
 def construct_test_cases(unsorted=False):
