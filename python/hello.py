@@ -1,7 +1,7 @@
-mylist = [1,1,5,25,25,125,625]
+mylist = [1, 1, 5, 25, 25, 125]
 r = 5
 count = 0
-
+# still need to flatten lists
 for i in range(len(mylist)):
     for j in range(i+1,len(mylist)):
         if mylist[i]*r == mylist[j]:
@@ -16,5 +16,4 @@ for i in range(len(mylist)):
                   print('index:', k, 'value:', mylist[k])
                   print('end')
                   count += 1
-print('Total Indices: %d' %count)                  
-                    
+print('Total Indices: %d' %count)       
