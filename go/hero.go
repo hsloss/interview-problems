@@ -62,7 +62,7 @@ func heroGet(w http.ResponseWriter, r *http.Request) {
 	var name string
 	var ok bool
 	if name, ok = mux.Vars(r)["name"]; !ok {
-		// TODO: Handle not ok
+		send("Not ok"))
 	}
 	_ = name // TODO: something with name
 	w.WriteHeader(http.StatusNotImplemented)
