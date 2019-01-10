@@ -54,8 +54,10 @@ export default {
       this.heroes = this.heroes.filter(h => h.name != name)  
     },
 
-    removeHero(hero) {
-      this.chosenHeroes = this.chosenHeroes.filter(h => h.name != hero.name);
+    removeHero(name) {
+      this.chosenHeroes = this.chosenHeroes.filter(h => h != name)
+      this.heroes.push({name})
+  
     },
     missionAlert(chosenHeroes){
       if (chosenHeroes.length == 3)
