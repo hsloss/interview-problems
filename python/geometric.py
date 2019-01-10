@@ -41,7 +41,22 @@
 import random
 
 def find_geo_seq(l, r):
-    # code
+    count = 0
+    for i in range(len(l)):
+        for j in range(i+1,len(l)):
+            if l[i]*r == l[j]:
+                print('The common ratio is %d' %r)
+            else:  
+                continue        
+            for k in range(j+1,len(l)):
+                    if l[i]*r**2 == l[k]:
+                        print('begin')
+                        print('index:', i, 'value:', l[i])
+                        print('index:', j, 'value:', l[j])
+                        print('index:', k, 'value:', l[k])
+                        print('end')
+                        count += 1
+    print('Total Indices: %d' %count)  
     return 0
 
 def construct_test_cases(unsorted=False):
