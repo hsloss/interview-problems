@@ -7,7 +7,6 @@
       <h3>Roster:</h3>
       <li v-for="hero in heroes"
           :key="hero.name">
-
         <!-- to do: conditionally display this span -->
         <span>✔ &nbsp;</span>
         <span>{{ hero.name }}&nbsp;</span>

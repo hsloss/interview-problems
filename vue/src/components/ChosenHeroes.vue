@@ -40,7 +40,6 @@ export default {
     return {
       chosenHero: true,
       chosenHeroes: [],
-      notChosenHeroes: this.heroes
     }; 
   },
   // // computed:{
@@ -52,8 +51,7 @@ export default {
     addHero(name) {
       this.chosenHeroes.push({ name });
       this.chosenHero = null;
-      const heroIndex = this.heroes.indexOf({name})
-      this.notChosenHeroes.splice(heroIndex, 1)
+      this.heroes = this.heroes.filter(h => h.name != name)  
     },
 
     removeHero(hero) {
@@ -76,4 +74,3 @@ export default {
   align-items: center;
 }
 </style>
-
