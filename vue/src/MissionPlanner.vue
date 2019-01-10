@@ -10,7 +10,6 @@
 
         <!-- to do: conditionally display this span -->
         <span>✔ &nbsp;</span>
-
         <span>{{ hero.name }}&nbsp;</span>
         <span class="edit"
               @click="editHero(hero)">edit</span>
@@ -49,7 +48,7 @@ export default {
       ],
       newName: "",
       isEdit: false,
-      heroToModify: null
+      heroToModify: null,
     };
   },
   methods: {

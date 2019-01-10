@@ -13,7 +13,8 @@
     </select>
     <span>&nbsp;</span>
     <button @click="addHero(chosenHero)"
-            :disabled="chosenHero === null">Add Hero</button>
+            :disabled="chosenHeroes.length == 3">Add Hero</button>
+    <button @click="missionAlert(chosenHeroes)">Launch Misson</button>        
     <br>
     <h3>Chosen Heroes</h3>
     <div class="chosen-heroes">
@@ -37,18 +38,32 @@ export default {
   props: ["heroes"],
   data() {
     return {
-      chosenHero: null,
-      chosenHeroes: []
-    };
+      chosenHero: true,
+      chosenHeroes: [],
+      notChosenHeroes: this.heroes
+    }; 
   },
+  // // computed:{
+  // //       filtered: function (heroes) {
+  // //     return heroes.filter(h => chosenHeroes.includes(h) == true)
+  // //   },
+  // },
   methods: {
     addHero(name) {
       this.chosenHeroes.push({ name });
       this.chosenHero = null;
+      const heroIndex = this.heroes.indexOf({name})
+      this.notChosenHeroes.splice(heroIndex, 1)
     },
 
     removeHero(hero) {
       this.chosenHeroes = this.chosenHeroes.filter(h => h.name != hero.name);
+    },
+    missionAlert(chosenHeroes){
+      if (chosenHeroes.length == 3)
+        alert("Mission complete.")
+      else
+        alert("We need three heroes.")  
     }
   }
 };
@@ -61,5 +76,4 @@ export default {
   align-items: center;
 }
 </style>
-
 
