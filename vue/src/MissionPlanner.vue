@@ -3,7 +3,7 @@
     <!-- justice leage application begins here -->
     <h1 id="jl">Justice League Mission Planner</h1>
     <ChangeName v-bind:heroes="heroes" v-on:changeName="updateName($event)"></ChangeName>
-    <ChosenHeroes v-bind:heroes="heroes"></ChosenHeroes>
+    <ChosenHeroes v-bind:heroes="heroes" v-on:changeName="updateName($event)"></ChosenHeroes>
   </div>
 </template>
 
@@ -22,13 +22,13 @@ export default {
   data() {
     return {
       heroes: [
-        { name: "Superman" },
-        { name: "Batman" },
-        { name: "Aquaman" },
-        { name: "Wonder Woman" },
-        { name: "Green Lantern" },
-        { name: "Martian Manhunter" },
-        { name: "Flash" }
+        { name: "Superman", selected: false },
+        { name: "Batman", selected: false },
+        { name: "Aquaman", selected: false },
+        { name: "Wonder Woman", selected: false },
+        { name: "Green Lantern", selected: false },
+        { name: "Martian Manhunter", selected: false },
+        { name: "Flash", selected: false }
       ],
       newName: "",
       isEdit: false,

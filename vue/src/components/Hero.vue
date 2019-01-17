@@ -1,14 +1,19 @@
 <template>
     <div class="card">
         <h3 class="close" @click="$emit('removeHero')">&times;</h3>
-        <h1>{{ hero.name }}</h1>
+        <h1 v-on:changeName="updateName($event)">{{ hero.name }}</h1>
     </div>
 </template>
 
 <script>
 export default {
-  props: ["hero", "heroes"]
-};
+  props: ["hero", "heroes", "newName", "isEdit", "heroToModify"], 
+  methods:{
+    updateName: function(updatedName){
+        this.name = updatedName
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -6,7 +6,7 @@
           :key="hero.name"
           :value="hero.name">
         <!-- to do: conditionally display this span -->
-        <span v-if="hero.chosenHero">✔ &nbsp;</span>
+        <span v-if="hero.selected">✔ {{hero.name}}&nbsp;</span>
         <span>{{ hero.name }}&nbsp;</span>
         <span class="edit"
               @click="editHero(hero)">edit</span>
@@ -33,14 +33,7 @@ export default {
     Hero,
     ChosenHeroes
   },
-  props: ["heroes"],
-  data() {
-    return {
-      newName: "",
-      isEdit: false,
-      heroToModify: null,
-    };
-  },
+  props: ["heroes", "newName", "isEdit", "heroToModify"],
   methods: {
     editHero(hero) {
       this.isEdit = true;
@@ -51,9 +44,12 @@ export default {
     changeName() {
       this.heroToModify.name = this.newName;
       this.isEdit = false;
-      this.newName = this.hero.name
+      this.newName = this.name
+      // this.$emit('changeName', this.name)
     },
-
+    // updateName(){
+    //   this.$emit('changeName', this.name)
+    // },
     clear() {
       this.heroToModify = null;
       this.newName = "";

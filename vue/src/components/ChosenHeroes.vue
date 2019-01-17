@@ -35,7 +35,7 @@ export default {
   components: {
     Hero
   },
-  props: ["heroes"],
+  props: ["heroes", "isEdit", "newName", "heroToModify"],
   data() {
     return {
       chosenHero: true,
@@ -52,7 +52,7 @@ export default {
 
     removeHero(name) {
       this.chosenHeroes = this.chosenHeroes.filter(h => h != name)
-      this.heroes.push({name})
+      this.heroes.push(name)
   
     },
     missionAlert(chosenHeroes){
@@ -60,6 +60,9 @@ export default {
         alert("Mission complete.")
       else
         alert("We need three heroes.")  
+    },
+    updateName: function(){
+      
     }
   }
 };
