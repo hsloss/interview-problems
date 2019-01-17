@@ -42,15 +42,11 @@ export default {
       chosenHeroes: [],
     }; 
   },
-  // // computed:{
-  // //       filtered: function (heroes) {
-  // //     return heroes.filter(h => chosenHeroes.includes(h) == true)
-  // //   },
-  // },
   methods: {
     addHero(name) {
       this.chosenHeroes.push({ name });
-      this.chosenHero = null;
+      this.chosenHeroes.chosenHero = true;
+      this.heroes.chosenHero = true;
       this.heroes = this.heroes.filter(h => h.name != name)  
     },
 
